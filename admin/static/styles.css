@@ -112,6 +112,10 @@ input:checked~.toggle {
 }
 
 body header form button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 104px;
     height: 48px;
     border: none;
@@ -120,12 +124,34 @@ body header form button {
     font-size: 1.2rem;
     background-image: linear-gradient(90deg, var(--color4), var(--color5), var(--color6));
     background-size: 500%;
-    background-position: 0%;
     cursor: pointer;
     transition: .5s;
 }
 
+body header form button p {
+    z-index: 2;
+}
+
+body header form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: var(--color5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 1s;
+    z-index: 1;
+}
+
+body header form button:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 body header form button:hover {
-    background-position: 100%;
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
