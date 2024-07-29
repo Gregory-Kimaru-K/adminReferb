@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'imgs/logo.png' %}" alt="">
+        <h3>
+            Welcome <span>Gregory</span>
+        </h3>
+        <label>
+            <input type="checkbox" id="theme-toggle">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+            <span class="toggle"></span>
+        </label>
+        <form action="">
+            <button>
+                Logout
+            </button>
+        </form>
+    </header>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const checkBox = document.querySelector('#theme-toggle');
+        checkBox.addEventListener('change', function(){
+            if (checkBox.checked){
+                document.body.classList.add('whitness');
+            }
+            else {
+                document.body.classList.remove('whitness');
+            }
+        })
+    </script>
+</body>
+</html>
