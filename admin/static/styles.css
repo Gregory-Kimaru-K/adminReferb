@@ -8,6 +8,8 @@
     --color7: rgba(245,255,250);
     --color8: rgba(245,245,245);
     --color9: rgba(255,240,245);
+    --color10: #2f4f4f;
+
 }
 
 /**
@@ -26,6 +28,10 @@ body {
     margin: 0;
     background: var(--color1);
     color: var(--color7);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
 }
 
 .whitness {
@@ -43,6 +49,7 @@ Header Section
 */
 
 body header {
+    position: fixed;
     width: 100%;
     display: flex;
     justify-content: space-around;

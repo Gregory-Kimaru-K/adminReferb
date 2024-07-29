@@ -1,11 +1,58 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+
+    <!--Fonts-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="login-box">
+        <h3>Login</h3>
+        <form>
+          <div class="user-box">
+            <input required="" name="user_name" type="text">
+            <label>User Name</label>
+          </div>
+          <div class="user-box">
+            <input required="" name="password" type="password" class="password-field">
+            <div class="svg-image" id="svg-image" data-eye-url="{% static 'imgs/eye.svg' %}" data-ceye-url="{% static 'imgs/ceye.svg' %}">
+                <img src="{% static 'imgs/ceye.svg' %}" alt="">
+            </div>
+            <label>Password</label>
+          </div>
+          <button>
+                Send
+          </button>
+        </form>
+      </div>
+      <script>
+        let eye = document.querySelector('.svg-image');
+        let eye_url = eye.getAttribute('data-eye-url');
+        let ceye_url = eye.getAttribute('data-ceye-url');
+        let passField = document.querySelector('.password-field');
+
+        eye.addEventListener('click', function(){
+            if (eye.classList.contains('view-pass')){
+                eye.classList.remove('view-pass');
+                eye.innerHTML = `<img src="${ceye_url}" alt="">`;
+                passField.type = 'password';
+            }
+            else {
+                eye.classList.add('view-pass');
+                eye.innerHTML = `<img src="${eye_url}" alt="">`;
+                passField.type = 'text';
+            };
+        });
+
+
+      </script>
 </body>
 </html>
