@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static 'login.css' %}">
 
     <!--Fonts-->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -16,10 +15,8 @@
 <body>
     <div class="login-box">
         <h3>Login</h3>
-        <div class="error_log">
-          <p>
-            This is an error
-          </p>
+        <div class="error_log" style="display:none;">
+          <p class="error_msg"></p>
           <button class="error_btn">
             Ok
           </button>
@@ -27,7 +24,7 @@
         <form method="post" action="{% url 'login' %}" class="form1">
           {% csrf_token %}
           <div class="user-box">
-            <input required="" name="user_name" type="text">
+            <input required="" name="user_name" class="username" type="text">
             <label>User Name</label>
           </div>
           <div class="user-box">
@@ -37,19 +34,19 @@
             </div>
             <label>Password</label>
           </div>
-          <button type="submit">
+          <button class="btnSendForm" type="submit">
             <div class="send">
               Send
             </div>
-            <div class="load">
+            <div class="load" style="display:none;">
               <div></div>
               <div></div>
               <div></div>
             </div>
           </button>
         </form>
-      </div>
-      <script>
+    </div>
+    <script>
         let eye = document.querySelector('.svg-image');
         let eye_url = eye.getAttribute('data-eye-url');
         let ceye_url = eye.getAttribute('data-ceye-url');
@@ -60,20 +57,59 @@
                 eye.classList.remove('view-pass');
                 eye.innerHTML = `<img src="${ceye_url}" alt="">`;
                 passField.type = 'password';
-            }
-            else {
+            } else {
                 eye.classList.add('view-pass');
                 eye.innerHTML = `<img src="${eye_url}" alt="">`;
                 passField.type = 'text';
-            };
+            }
         });
-      </script>
-      <script>
+
+        // Handle form submission
         const error_log_btn = document.querySelector('.error_btn');
         const error_log = document.querySelector('.error_log');
+        const login_form = document.querySelector('.form1');
+        const error_msg = document.querySelector('.error_msg');
+
         error_log_btn.addEventListener('click', function(){
           error_log.style.display = 'none';
         });
-      </script>
+
+        login_form.addEventListener('submit', async function(event){
+          event.preventDefault(); // Prevent default form submission
+          
+          // Show loading spinner and disable button
+          document.querySelector('.send').style.display = 'none';
+          document.querySelector('.load').style.display = 'flex';
+          const btnSendForm = document.querySelector('.btnSendForm');
+          btnSendForm.style.pointerEvents = 'none';
+
+          const formData = new FormData(this);
+          try {
+            const response = await fetch(this.action, {
+              method: 'POST',
+              body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success === 'True'){
+              window.location.href = result.redirect_url;
+            } else {
+              error_log.style.display = 'flex';
+              error_msg.textContent = result.message;
+              document.querySelector('.username').value = '';
+              document.querySelector('.password-field').value = '';
+            }
+          } catch(error) {
+            console.log(error);
+            error_log.style.display = 'flex';
+            error_msg.textContent = 'Unexpected error occurred. Please try again later';
+          } finally {
+            document.querySelector('.send').style.display = 'block';
+            document.querySelector('.load').style.display = 'none';
+            btnSendForm.style.pointerEvents = 'auto'; 
+          }
+        });
+    </script>
 </body>
 </html>
