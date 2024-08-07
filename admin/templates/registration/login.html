@@ -16,7 +16,16 @@
 <body>
     <div class="login-box">
         <h3>Login</h3>
-        <form>
+        <!-- <div class="error_log">
+          <p>
+            This is an error
+          </p>
+          <button class="error_btn">
+            Ok
+          </button>
+        </div> -->
+        <form method="post" action="{% url 'login' %}" class="form1">
+          {% csrf_token %}
           <div class="user-box">
             <input required="" name="user_name" type="text">
             <label>User Name</label>
@@ -28,7 +37,7 @@
             </div>
             <label>Password</label>
           </div>
-          <button>
+          <button type="submit">
                 Send
           </button>
         </form>
@@ -51,8 +60,20 @@
                 passField.type = 'text';
             };
         });
-
-
+      </script>
+      <script>
+        let form1 = document.querySelector('.form1');
+        form1.addEventListener('submit', async function(event) {
+          event.preventDefault();
+          form_data = new FormData(this);
+          let response = await fetch("{% url 'login' %}", {
+            method : 'POST',
+            body : form_data,
+            headers : {
+              'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+          })
+        })
       </script>
 </body>
 </html>
