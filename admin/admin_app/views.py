@@ -20,10 +20,10 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return JsonResponse({'success' : True, 'redirect_url' : '/'})
+            return JsonResponse({'success' : 'True', 'redirect_url' : '/'})
         
         else:
-            return JsonResponse({'success' : False, 'message' : 'Invalid credentials'})
+            return JsonResponse({'success' : 'False', 'message' : 'Invalid credentials'})
 
 
     return render(request, 'registration/login.html')
