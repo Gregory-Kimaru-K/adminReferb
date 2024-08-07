@@ -46,6 +46,37 @@
                 document.body.classList.remove('whitness');
             }
         })
+
+        //Logout after 30seconds
+        let timeout;
+        const TIMEOUT_DURATION = 3000;
+
+        function resetTimeout(){
+            clearTimeout(timeout);
+            timeout = setTimeout(logout, TIMEOUT_DURATION);
+        }
+
+        function logout(){
+            fetch('/logout/', {
+                method : 'POST',
+                headers : {
+                    'X-CSRFToken' : getcookie('csrftoken'),
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/login/'
+                }
+            });
+        }
+
+        function getcookie(name) {
+            let cookieValue;
+
+            if (document.cookie && document.cookie !== ''){
+                
+            }
+        }
     </script>
+
 </body>
 </html>

@@ -148,15 +148,15 @@ body header form button::before {
     height: 100%;
     border-radius: 8px;
     background: var(--color5);
-    transform: scaleX(0);
-    transform-origin: right;
+    transform: scaleY(0);
+    transform-origin: top;
     transition: transform 1s;
     z-index: 1;
 }
 
 body header form button:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
+    transform: scaleY(1);
+    transform-origin: bottom;
 }
 
 body header form button:hover {
