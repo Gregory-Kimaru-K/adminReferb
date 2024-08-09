@@ -32,3 +32,6 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def user_view(request):
+    pass
