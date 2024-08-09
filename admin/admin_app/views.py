@@ -4,12 +4,12 @@ from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-@login_required(login_url='/login')
+# @login_required(login_url='/login')
 def admin_view(request):
     context = {
         'username' : request.user.username
     }
-    return render(request, 'base.html', context)
+    return render(request, 'body_temp/main.html', context)
 
 def login_view(request):
     if request.method == 'POST':

@@ -31,7 +31,7 @@ body {
     font-family: "Ubuntu", sans-serif;
     font-weight: 300;
     font-style: normal;
-
+    display: flex;
 }
 
 .whitness {
@@ -50,6 +50,7 @@ Header Section
 
 body header {
     position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -161,4 +162,40 @@ body header form button:hover::before {
 
 body header form button:hover {
     transform: scale(1.2);
+}
+
+/**
+##########
+###############
+####################
+Container Section
+####################
+###############
+##########
+*/
+
+body .container {
+    background: var(--color1);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+}
+
+.whitness .container {
+    color: var(--color1);
+    background: var(--color10);
+}
+
+.main-div {
+    background: rgba(47,79, 79, 0.4);
+    width: 50%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
 }
