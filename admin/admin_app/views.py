@@ -3,13 +3,14 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User, Group
 # Create your views here.
 # @login_required(login_url='/login')
 def admin_view(request):
     context = {
         'username' : request.user.username
     }
-    return render(request, 'body_temp/main.html', context)
+    return render(request, 'body_temp/data_overview.html', context)
 
 def login_view(request):
     if request.method == 'POST':
@@ -34,4 +35,9 @@ def logout_view(request):
     return redirect('login')
 
 def user_view(request):
-    pass
+    users = User.objects.all()
+    context = {
+        'users' : users
+    }
+
+    return JsonResponse({'users' : context})
