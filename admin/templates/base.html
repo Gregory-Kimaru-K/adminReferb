@@ -68,11 +68,14 @@
             }
         })
 
-        //Toggle side section
+        //Side section Actions
         const anchors = document.querySelectorAll('.anchor');
         console.log(anchors)
         anchors.forEach(anchor => {
             anchor.addEventListener('click', function(event){
+                event.preventDefault();
+                url = this.getAttribute('data-url');
+                
                 anchors.forEach(a => {
                     a.classList.remove('active');
                     a.classList.remove('aftbef');
