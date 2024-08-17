@@ -34,13 +34,30 @@
             </button>
         </form>
     </header>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
+    <div class="flex">
+        <div class="side_section">
+            <a href="#" class="anchor active aftbef" title="Home Page">
+                <ion-icon class="icon" name="home-outline"></ion-icon>
+            </a>
+            <a href="#" class="anchor" title="Users Table">
+                <ion-icon class="icon" name="people-outline"></ion-icon>
+            </a>
+            <a href="#" class="anchor" title="Group Table">
+                <ion-icon class="icon" name="people-circle-outline"></ion-icon>
+            </a>
+            <a href="#" class="anchor" title="Messages Table">
+                <ion-icon class="icon" name="chatbubble-ellipses-outline"></ion-icon>
+            </a>
+        </div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script>
+        //Toggle theme
         const checkBox = document.querySelector('#theme-toggle');
         checkBox.addEventListener('change', function(){
             if (checkBox.checked){
@@ -49,6 +66,22 @@
             else {
                 document.body.classList.remove('whitness');
             }
+        })
+
+        //Toggle side section
+        const anchors = document.querySelectorAll('.anchor');
+        console.log(anchors)
+        anchors.forEach(anchor => {
+            anchor.addEventListener('click', function(event){
+                anchors.forEach(a => {
+                    a.classList.remove('active');
+                    a.classList.remove('aftbef');
+                });
+                this.classList.add('active');
+                setTimeout(() => {
+                    this.classList.add('aftbef');
+                }, 250);
+            })
         })
 
         //Logout after 5seconds

@@ -10,7 +10,7 @@ def admin_view(request):
     context = {
         'username' : request.user.username
     }
-    return render(request, 'body_temp/data_overview.html', context)
+    return render(request, 'body_temp/main.html', context)
 
 def login_view(request):
     if request.method == 'POST':
