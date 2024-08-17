@@ -235,6 +235,11 @@ Side Section
     transform: rotate(-8deg);
 }
 
+.whitness .flex .side_section .aftbef::after {
+    box-shadow: 5px 5px var(--color7);
+}
+
+
 .flex .side_section .aftbef::before {
     bottom: -24%;
     border-top-right-radius: 20px;
@@ -242,9 +247,18 @@ Side Section
     transform: rotate(8deg);
 }
 
+.whitness .flex .side_section .aftbef::before {
+    box-shadow: 5px -3px var(--color7);
+}
+
 .flex .side_section .active {
     transform: translateX(56px);
     background: var(--color10);
+}
+
+.whitness .flex .side_section .active {
+    background: var(--color7);
+    color: var(--color1);
 }
 
 .flex .side_section .anchor .icon {
