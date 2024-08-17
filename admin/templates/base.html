@@ -36,16 +36,16 @@
     </header>
     <div class="flex">
         <div class="side_section">
-            <a href="#" class="anchor active aftbef" title="Home Page">
+            <a href="{% admin %}" class="anchor active aftbef" title="Home Page">
                 <ion-icon class="icon" name="home-outline"></ion-icon>
             </a>
-            <a href="#" class="anchor" title="Users Table">
+            <a href="{% user_table %}" class="anchor" title="Users Table">
                 <ion-icon class="icon" name="people-outline"></ion-icon>
             </a>
-            <a href="#" class="anchor" title="Group Table">
+            <a href="{% grp_table %}" class="anchor" title="Group Table">
                 <ion-icon class="icon" name="people-circle-outline"></ion-icon>
             </a>
-            <a href="#" class="anchor" title="Messages Table">
+            <a href="{% messages_table %}" class="anchor" title="Messages Table">
                 <ion-icon class="icon" name="chatbubble-ellipses-outline"></ion-icon>
             </a>
         </div>
@@ -75,7 +75,7 @@
             anchor.addEventListener('click', function(event){
                 event.preventDefault();
                 url = this.getAttribute('data-url');
-                
+
                 anchors.forEach(a => {
                     a.classList.remove('active');
                     a.classList.remove('aftbef');
