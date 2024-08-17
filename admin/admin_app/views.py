@@ -35,10 +35,10 @@ def admin_view(request):
     return render(request, 'body_temp/main.html', context)
 
 def user_table(request):
-    return render(request, 'body_temp/data_overview.html')
+    return render(request, 'body_temp/usertab.html')
 
 def grp_table(request):
-    return render(request, 'body_temp/data_overview.html')
+    return render(request, 'body_temp/grptab.html')
 
 def message_table(request):
-    return render(request, 'body_temp/data_overview.html')
+    return render(request, 'body_temp/msgtab.html')
