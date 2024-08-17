@@ -282,7 +282,56 @@ body .flex .container {
     height: 100%;
 }
 
-.whitness .container {
+.whitness .flex .container {
     color: var(--color1);
     background: var(--color7);
+}
+
+/**
+##########
+###############
+####################
+User Activity Section
+####################
+###############
+##########
+*/
+
+.user_activity {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.user_activity .search {
+    position: relative;
+    top: 40px;
+    align-self: center;
+    text-align: center;
+    width: 50%;
+    height: 56px;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 14px;
+    background: rgba(72,6,7, 0.9);
+    color: var(--color7);
+}
+
+.user_activity .search:focus {
+    background: var(--color3);
+    outline: none;
+}
+
+.user_activity .search_icon {
+    position: absolute;
+    top: 84%;
+    right: 26%;
+    z-index: 300;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.whitness .user_activity .search_icon {
+    color: var(--color7);
 }
