@@ -70,19 +70,34 @@
 
         //Side section Actions
         const anchors = document.querySelectorAll('.anchor');
-        console.log(anchors)
+        const container = document.querySelector('.container');
         anchors.forEach(anchor => {
             anchor.addEventListener('click', function(event){
-                url = this.getAttribute('data-url');
+                event.preventDefault();
+                url = this.getAttribute('href');
 
-                anchors.forEach(a => {
+                fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    let tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+                    newContent = tempDiv.querySelector('.container');
+                    if (newContent) {
+                        container.innerHTML = newContent.innerHTML;
+                    }
+                    else {
+                        alert('No content found');
+                    };
+                    anchors.forEach(a => {
                     a.classList.remove('active');
                     a.classList.remove('aftbef');
-                });
-                this.classList.add('active');
-                setTimeout(() => {
-                    this.classList.add('aftbef');
-                }, 250);
+                    });
+                    this.classList.add('active');
+                    setTimeout(() => {
+                        this.classList.add('aftbef');
+                    }, 250);
+                })
+                .catch(err => alert('Error loading page: ', err));
             })
         })
 
