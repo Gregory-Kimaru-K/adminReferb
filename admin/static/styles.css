@@ -304,28 +304,41 @@ User Activity Section
     flex-direction: column;
 }
 
-.user_activity .search {
+.user_activity .searchbar {
     position: relative;
     top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.user_activity .searchbar .search {
     align-self: center;
     text-align: center;
     width: 50%;
     height: 56px;
     font-size: 1.6rem;
     border: none;
+    background: var(--color2);
     border-radius: 14px;
-    background: rgba(72,6,7, 0.9);
     color: var(--color7);
 }
 
-.user_activity .search:focus {
+.whitness .user_activity .searchbar .search {
+    background: var(--color5);
+}
+
+.whitness .user_activity .searchbar .search:focus {
+    background: var(--color4);
+}
+
+.user_activity .searchbar .search:focus {
     background: var(--color3);
     outline: none;
 }
 
 .user_activity .search_icon {
     position: absolute;
-    top: 84%;
+    top: 18%;
     right: 26%;
     z-index: 300;
     font-size: 2.4rem;
@@ -334,4 +347,15 @@ User Activity Section
 
 .whitness .user_activity .search_icon {
     color: var(--color7);
+}
+
+.user_activity .activity {
+    position: relative;
+    top: 42px;
+}
+
+.user_activity .activity .day_activity {
+    width: 200px;
+    height: 100px;
+    background: var(--color7);
 }
