@@ -378,6 +378,16 @@ UserTable Section
     width: 100%;
 }
 
+/**
+##########
+###############
+####################
+UserDiv in UserTable Section
+####################
+###############
+##########
+*/
+
 .user_table .users_div .user {
     display: flex;
     justify-content: space-around;
@@ -403,6 +413,11 @@ UserTable Section
 
 .user_table .users_div .user .active_user {
     transform: rotate(60deg);
+    color: var(--color11);
+}
+
+.user_table .users_div .user .inactive_user {
+    color: var(--color4);
 }
 
 .user_table .users_div .user .super_buttons {
@@ -411,8 +426,50 @@ UserTable Section
 }
 
 .user_table .users_div .user .super_buttons button {
-    background: var(--color4);
+    background: linear-gradient(45deg , var(--color4), var(--color5), var(--color6));
+    background-size: 500%;
+    background-position: 0%;
     border: none;
     height: 36px;
+    font-size: 1.1rem;
+    color: var(--color2);
+    border-radius: 8px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.user_table .users_div .user .super_buttons button:hover {
+    transform: scale(1.1);
+    background-position: 100%;
+}
+
+.user_table .user_add {
+    position: relative;
+    top: 56px;
+    width: 100%;
+    padding: 56px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.user_table .user_add button {
+    width: 20%;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(45deg , var(--color4), var(--color5), var(--color6));
+    background-size: 500%;
+    background-position: 0%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.user_table .user_add button:hover {
+    background-position: 100%;
+    transform: scale(1.2);
+}
+
+.user_table .pages_div {
+    position: relative;
+    top: 56px;
 }
