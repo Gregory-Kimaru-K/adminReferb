@@ -36,16 +36,16 @@
     </header>
     <div class="flex">
         <div class="side_section">
-            <a href="{% url 'admin' %}" class="anchor active aftbef" title="Home Page">
+            <a hrefa="{% url 'admin' %}" class="anchor active aftbef" title="Home Page">
                 <ion-icon class="icon" name="home-outline"></ion-icon>
             </a>
-            <a href="{% url 'user_table' %}" class="anchor" title="Users Table">
+            <a hrefa="{% url 'user_table' %}" class="anchor" title="Users Table">
                 <ion-icon class="icon" name="people-outline"></ion-icon>
             </a>
-            <a href="{% url 'grp_table' %}" class="anchor" title="Group Table">
+            <a hrefa="{% url 'grp_table' %}" class="anchor" title="Group Table">
                 <ion-icon class="icon" name="people-circle-outline"></ion-icon>
             </a>
-            <a href="{% url 'messages_table' %}" class="anchor" title="Messages Table">
+            <a hrefa="{% url 'messages_table' %}" class="anchor" title="Messages Table">
                 <ion-icon class="icon" name="chatbubble-ellipses-outline"></ion-icon>
             </a>
         </div>
@@ -74,7 +74,7 @@
         anchors.forEach(anchor => {
             anchor.addEventListener('click', function(event){
                 event.preventDefault();
-                url = this.getAttribute('href');
+                url = this.getAttribute('hrefa');
 
                 fetch(url)
                 .then(response => response.text())

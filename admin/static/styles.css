@@ -213,6 +213,7 @@ Side Section
     color: var(--color7);
     border-radius: 50%;
     padding: 7px;
+    cursor: pointer;
     transition: all 0.5s;
 }
 
@@ -323,14 +324,6 @@ User Activity Section
     color: var(--color7);
 }
 
-.whitness .user_activity .searchbar .search {
-    background: var(--color5);
-}
-
-.whitness .user_activity .searchbar .search:focus {
-    background: var(--color4);
-}
-
 .user_activity .searchbar .search:focus {
     background: var(--color3);
     outline: none;
@@ -351,11 +344,11 @@ User Activity Section
 
 .user_activity .activity {
     position: relative;
-    top: 42px;
+    top: 56px;
 }
 
 .user_activity .activity .day_activity {
-    width: 200px;
-    height: 100px;
+    width: 400px;
+    height: 200px;
     background: var(--color7);
 }
