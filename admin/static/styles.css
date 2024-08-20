@@ -305,14 +305,16 @@ User Activity Section
     flex-direction: column;
 }
 
-.user_activity .searchbar {
+.user_activity .searchbar,
+.user_table .searchbar {
     position: relative;
     top: 40px;
     display: flex;
     justify-content: center;
 }
 
-.user_activity .searchbar .search {
+.user_activity .searchbar .search,
+.user_table .searchbar .search {
     align-self: center;
     text-align: center;
     width: 50%;
@@ -324,12 +326,14 @@ User Activity Section
     color: var(--color7);
 }
 
-.user_activity .searchbar .search:focus {
+.user_activity .searchbar .search:focus,
+.user_table .searchbar .search:focus {
     background: var(--color3);
     outline: none;
 }
 
-.user_activity .search_icon {
+.user_activity .searchbar .search_icon,
+.user_table .searchbar .search_icon {
     position: absolute;
     top: 18%;
     right: 26%;
@@ -338,7 +342,8 @@ User Activity Section
     cursor: pointer;
 }
 
-.whitness .user_activity .search_icon {
+.whitness .user_activity .search_icon,
+.whitness .user_table .search_icon {
     color: var(--color7);
 }
 
@@ -351,4 +356,31 @@ User Activity Section
     width: 400px;
     height: 200px;
     background: var(--color7);
+}
+
+/**
+##########
+###############
+####################
+UserTable Section
+####################
+###############
+##########
+*/
+
+.user_table {
+    width: 100%;
+}
+
+.user_table .users_div {
+    position: relative;
+    top: 56px;
+    width: 100%;
+}
+
+.user_table .users_div .user {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }

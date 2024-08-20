@@ -32,7 +32,7 @@ def admin_view(request):
     context = {
         'username' : request.user.username
     }
-    return render(request, 'body_temp/main.html', context)
+    return render(request, 'body_temp/usertab.html', context)
 
 def user_table(request):
     return render(request, 'body_temp/usertab.html')
