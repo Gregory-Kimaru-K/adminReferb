@@ -491,6 +491,7 @@ Auth Admin Section
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 }
 
 .auth_div a {
@@ -502,6 +503,7 @@ Auth Admin Section
     background: color-mix(in srgb, var(--color12) 40%, var(--color1) 60%);
     color: var(--color7);
     text-decoration: none;
+    border-radius: 10px;
 }
 
 .auth_div .contrast {
@@ -511,4 +513,8 @@ Auth Admin Section
 .auth_div a .auth_user_icon {
     width: 32px;
     fill: var(--color7);
+}
+
+.auth_div .contrast .auth_user_icon {
+    width: 56px;
 }
