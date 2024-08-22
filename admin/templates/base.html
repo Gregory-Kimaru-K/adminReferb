@@ -81,6 +81,7 @@
                     newContent = tempDiv.querySelector('.container');
                     if (newContent) {
                         container.innerHTML = newContent.innerHTML;
+                        history.pushState(null, '', url)
                     }
                     else {
                         alert('No content found');
@@ -140,6 +141,9 @@
         document.addEventListener('mousemove', resetTimeout);
         document.addEventListener('keydown', resetTimeout);
         document.addEventListener('scroll', resetTimeout);
+
+        //Check relaod location
+
     </script>
 </body>
 </html>

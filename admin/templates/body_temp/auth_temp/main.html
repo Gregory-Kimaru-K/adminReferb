@@ -1,7 +1,7 @@
 {% extends '../../base.html' %}
 {% block content %}
 <div class="auth_div">
-    <a href="#">
+    <a href="{% url 'user_table' %}">
         <p>
             Users Table
         </p>
@@ -51,7 +51,7 @@
             </g>
         </svg>
     </a>
-    <a href="#" class="contrast">
+    <a href="{% url 'grp_table' %}" class="contrast">
         <p>
             User Group
         </p>
