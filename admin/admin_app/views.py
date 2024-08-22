@@ -34,11 +34,14 @@ def admin_view(request):
     }
     return render(request, 'body_temp/main.html', context)
 
+def adminstration(request):
+    return render(request, 'body_temp/auth_temp/main.html')
+
 def user_table(request):
-    return render(request, 'body_temp/usertab.html')
+    return render(request, 'body_temp/auth_temp/usertab.html')
 
 def grp_table(request):
-    return render(request, 'body_temp/grptab.html')
+    return render(request, 'body_temp/auth_temp/grptab.html')
 
 def message_table(request):
     return render(request, 'body_temp/msgtab.html')
