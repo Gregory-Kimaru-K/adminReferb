@@ -81,6 +81,7 @@
                     newContent = tempDiv.querySelector('.container');
                     if (newContent) {
                         container.innerHTML = newContent.innerHTML;
+                        attachAnchorListener();
                         history.pushState(null, '', url)
                     }
                     else {
@@ -162,7 +163,6 @@
                 };
             })
         })
-
     </script>
 </body>
 </html>

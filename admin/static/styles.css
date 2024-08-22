@@ -504,6 +504,7 @@ Auth Admin Section
     color: var(--color7);
     text-decoration: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .auth_div .contrast {
