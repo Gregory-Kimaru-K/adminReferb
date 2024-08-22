@@ -14,7 +14,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return JsonResponse({'success' : 'True', 'redirect_url' : '/'})
+            return JsonResponse({'success' : 'True', 'redirect_url' : '/home/'})
         
         else:
             return JsonResponse({'success' : 'False', 'message' : 'Invalid credentials'})

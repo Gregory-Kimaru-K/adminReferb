@@ -36,7 +36,7 @@
     </header>
     <div class="flex">
         <div class="side_section">
-            <a hrefa="{% url 'admin' %}" class="anchor active aftbef" title="Home Page">
+            <a hrefa="{% url 'admin' %}" class="anchor" title="Home Page">
                 <ion-icon class="icon" name="home-outline"></ion-icon>
             </a>
             <a hrefa="{% url 'adminstration' %}" class="anchor" title="Auth Tables">
@@ -143,6 +143,25 @@
         document.addEventListener('scroll', resetTimeout);
 
         //Check relaod location
+        document.addEventListener('DOMContentLoaded', function(){
+            const currentPath = window.location.pathname;
+
+            anchors.forEach(anchor => {
+                const anchorPath = anchor.getAttribute('hrefa');
+                if (anchorPath === currentPath) {
+                    anchor.classList.add('active');
+                    setTimeout(() => {
+                        anchor.classList.add('aftbef');
+                    }, 250);
+                }
+                else if (currentPath.startsWith('/adminstrative_auth/') && anchorPath === "{% url 'adminstration' %}") {
+                    anchor.classList.add('active');
+                    setTimeout(() => {
+                        anchor.classList.add('aftbef');
+                    }, 250);
+                };
+            })
+        })
 
     </script>
 </body>
