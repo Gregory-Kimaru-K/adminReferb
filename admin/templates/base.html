@@ -54,6 +54,34 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script>
+        // Attach anchor
+        function attachAnchorListener() {
+            let anchorts = document.querySelectorAll('.anchort');
+            anchorts.forEach(anchort => {
+                anchort.addEventListener('click', function(event){
+                    console.log('Clicked');
+                    event.preventDefault();
+                    let url1 = this.getAttribute('hrefa1');
+
+                    fetch(url1)
+                    .then(response => response.text())
+                    .then(html => {
+                        let tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = html
+                        newContent = tempDiv.querySelector('.container')
+                        if (newContent) {
+                            container.innerHTML = newContent.innerHTML
+                            history.pushState(null, '', url1)
+                        }
+                        else {
+                            alert('No Content Found Greg')
+                        }
+                    })
+                })
+            })
+        }
+
+        attachAnchorListener();
         //Toggle theme
         const checkBox = document.querySelector('#theme-toggle');
         checkBox.addEventListener('change', function(){
@@ -74,7 +102,12 @@
                 url = this.getAttribute('hrefa');
 
                 fetch(url)
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Http Error ! Status : ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then(html => {
                     let tempDiv = document.createElement('div');
                     tempDiv.innerHTML = html;
@@ -96,7 +129,9 @@
                         this.classList.add('aftbef');
                     }, 250);
                 })
-                .catch(err => alert('Error loading page: ', err));
+                .catch(err => {
+                    console.error(`Error loading page ${err}`)
+                });
             })
         })
 

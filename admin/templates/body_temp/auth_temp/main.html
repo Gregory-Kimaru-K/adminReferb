@@ -1,7 +1,7 @@
 {% extends '../../base.html' %}
 {% block content %}
 <div class="auth_div">
-    <a class="anchort" hrefa="{% url 'user_table' %}">
+    <a class="anchort" hrefa1="{% url 'user_table' %}">
         <p>
             Users Table
         </p>
@@ -51,7 +51,7 @@
             </g>
         </svg>
     </a>
-    <a hrefa="{% url 'grp_table' %}" class="contrast anchort">
+    <a hrefa1="{% url 'grp_table' %}" class="contrast anchort">
         <p>
             User Group
         </p>
@@ -99,33 +99,4 @@
         </svg>
     </a>
 </div>
-<script>
-    function attachAnchorListener() {
-        let anchorts = document.querySelectorAll('.anchort');
-        anchorts.forEach(anchort => {
-            anchort.addEventListener('click', function(event){
-                console.log('Clicked');
-                event.preventDefault();
-                let url1 = this.getAttribute('hrefa');
-
-                fetch(url1)
-                .then(response => response.text())
-                .then(html => {
-                    let tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = html
-                    newContent = tempDiv.querySelector('.container')
-                    if (newContent) {
-                        container.innerHTML = newContent.innerHTML
-                        history.pushState(null, '', url1)
-                    }
-                    else {
-                        alert('No Content Found')
-                    }
-                })
-            })
-        })
-    }
-
-    attachAnchorListener();
-</script>
 {% endblock %}
