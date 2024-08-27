@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
+from .models import CustomUser
 # Create your views here.
 def login_view(request):
     if request.method == 'POST':
@@ -12,7 +13,7 @@ def login_view(request):
 
         user = authenticate(request, username=username, password=password)
 
-        if user is not None:
+        if user is not None and isinstance(user, CustomUser):
             login(request, user)
             return JsonResponse({'success' : 'True', 'redirect_url' : '/home/'})
         

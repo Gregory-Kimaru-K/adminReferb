@@ -58,9 +58,7 @@
         function attachAnchorListener() {
             let anchorts = document.querySelectorAll('.anchort');
             anchorts.forEach(anchort => {
-                anchort.addEventListener('click', function(event){
-                    console.log('Clicked');
-                    event.preventDefault();
+                anchort.addEventListener('click', function(){
                     let url1 = this.getAttribute('hrefa1');
 
                     fetch(url1)
@@ -97,8 +95,7 @@
         const anchors = document.querySelectorAll('.anchor');
         const container = document.querySelector('.container');
         anchors.forEach(anchor => {
-            anchor.addEventListener('click', function(event){
-                event.preventDefault();
+            anchor.addEventListener('click', function(){
                 url = this.getAttribute('hrefa');
 
                 fetch(url)
